@@ -1,0 +1,17 @@
+const express = require("express")
+const app = express()
+const fruits = require("./routes/fruits")
+
+
+
+app.get("/", (req, res) => {
+  res.send("Hello fruity!")
+})
+
+
+app.use(express.json()) // Middleware to parse JSON request bodies
+app.use(`/fruits`, fruits)
+
+
+
+module.exports = app
